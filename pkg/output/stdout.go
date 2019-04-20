@@ -9,12 +9,12 @@ import (
 
 const (
 	BANNER_HEADER = `
-        /'___\  /'___\           /'___\       
-       /\ \__/ /\ \__/  __  __  /\ \__/       
-       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
-        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
-         \ \_\   \ \_\  \ \____/  \ \_\       
-          \/_/    \/_/   \/___/    \/_/       
+        /'___\  /'___\           /'___\
+       /\ \__/ /\ \__/  __  __  /\ \__/
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/
+         \ \_\   \ \_\  \ \____/  \ \_\
+          \/_/    \/_/   \/___/    \/_/
 `
 	BANNER_SEP = "________________________________________________"
 )
@@ -29,6 +29,7 @@ type Result struct {
 	StatusCode    int64  `json:"status"`
 	ContentLength int64  `json:"length"`
 	ContentWords  int64  `json:"words"`
+	ContentType   string `json:"content_type"`
 }
 
 func NewStdoutput(conf *ffuf.Config) *Stdoutput {
@@ -114,6 +115,7 @@ func (s *Stdoutput) Result(resp ffuf.Response) {
 			StatusCode:    resp.StatusCode,
 			ContentLength: resp.ContentLength,
 			ContentWords:  resp.ContentWords,
+			ContentType:   resp.ContentType,
 		}
 		s.Results = append(s.Results, sResult)
 	}
@@ -132,7 +134,7 @@ func (s *Stdoutput) resultQuiet(resp ffuf.Response) {
 }
 
 func (s *Stdoutput) resultNormal(resp ffuf.Response) {
-	res_str := fmt.Sprintf("%s%-23s [Status: %s, Size: %d, Words: %d]", TERMINAL_CLEAR_LINE, resp.Request.Input, s.colorizeStatus(resp.StatusCode), resp.ContentLength, resp.ContentWords)
+	res_str := fmt.Sprintf("%s%-23s [Status: %s, Content-type: %s, Size: %d, Words: %d]", TERMINAL_CLEAR_LINE, resp.Request.Input, s.colorizeStatus(resp.StatusCode), resp.ContentType, resp.ContentLength, resp.ContentWords)
 	fmt.Println(res_str)
 }
 

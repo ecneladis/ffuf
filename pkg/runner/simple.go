@@ -104,5 +104,7 @@ func (r *SimpleRunner) Execute(req *ffuf.Request) (ffuf.Response, error) {
 	wordsSize := len(strings.Split(string(resp.Data), " "))
 	resp.ContentWords = int64(wordsSize)
 
+	resp.ContentType = httpresp.Header.Get("Content-type")
+
 	return resp, nil
 }

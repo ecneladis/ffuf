@@ -9,6 +9,7 @@ type Response struct {
 	StatusCode    int64
 	Headers       map[string][]string
 	Data          []byte
+	ContentType  string
 	ContentLength int64
 	ContentWords  int64
 	Cancelled     bool
