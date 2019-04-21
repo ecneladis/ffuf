@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ffuf/ffuf/pkg/ffuf"
+	"github.com/ecneladis/ffuf/pkg/ffuf"
 )
 
 const (

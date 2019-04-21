@@ -126,9 +126,9 @@ eg. `ffuf -u https://example.org/FUZZ -w /path/to/wordlist`
 
 ## Installation
 
- - [Download](https://github.com/ffuf/ffuf/releases/latest) a prebuilt binary from [releases page](https://github.com/ffuf/ffuf/releases/latest), unpack and run!
+ - [Download](https://github.com/ecneladis/ffuf/releases/latest) a prebuilt binary from [releases page](https://github.com/ecneladis/ffuf/releases/latest), unpack and run!
  or
- - If you have go compiler installed: `go get github.com/ffuf/ffuf`
+ - If you have go compiler installed: `go get github.com/ecneladis/ffuf`
 
 The only dependency of ffuf is Go 1.11. No dependencies outside of Go standard library are needed.
 

@@ -3,7 +3,7 @@ package filter
 import (
 	"fmt"
 
-	"github.com/ffuf/ffuf/pkg/ffuf"
+	"github.com/ecneladis/ffuf/pkg/ffuf"
 )
 
 func NewFilterByName(name string, value string) (ffuf.FilterProvider, error) {

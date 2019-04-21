@@ -6,7 +6,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/ffuf/ffuf/pkg/ffuf"
+	"github.com/ecneladis/ffuf/pkg/ffuf"
 )
 
 var header = []string{"input", "status_code", "content_type", "content_length", "content_words"}
